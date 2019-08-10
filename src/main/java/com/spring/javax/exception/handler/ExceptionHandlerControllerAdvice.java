@@ -14,8 +14,6 @@ public class ExceptionHandlerControllerAdvice {
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<ExceptionResponse> handleValidationException(MethodArgumentNotValidException exc){
 		ExceptionResponse respBody=new ExceptionResponse(exc.getBindingResult().getAllErrors().get(0).getDefaultMessage(), "ABCD_1001");
-		exc.getParameter();
-		
 		return new ResponseEntity<>(respBody, HttpStatus.BAD_REQUEST);
 	}
 
